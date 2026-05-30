@@ -427,18 +427,26 @@ class ReverseDrillWorkflow:
             bom_sub_components: List[dict],
             bom_materials: List[dict],
             supplier_data: Dict[str, List[dict]],
-            financial_data: Dict[str, dict]) -> List[ChokepointAnalysis]:
+            financial_data: Dict[str, dict],
+            lightweight: bool = False) -> List[ChokepointAnalysis]:
         """
         运行完整的多Agent反向钻探工作流
         
         参数结构参考 src/agent_a_bom_decompose、agent_b_market_concentration、
         agent_c_financial_assessment 方法的文档。
+        
+        lightweight=True → 🔴 纯钻探模式：跳过Agent C财务验证，使用纯图论+集中度评分
+        lightweight=False → 完整模式：包含财务验证
         """
+        mode_label = "🔴 纯钻探" if lightweight else "🔵 完整双引擎"
         print("=" * 70)
-        print(f"🔄 多Agent反向深度钻探工作流启动")
+        print(f"🔄 多Agent反向深度钻探工作流启动 [{mode_label}]")
         print(f"🎯 终端产品: {self.product_name}")
         print(f"🏭 所属行业: {self.industry}")
         print(f"📅 分析时间: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        if lightweight:
+            print("⚡ 纯钻探模式: Agent A(拆解) → Agent B(集中度) → Agent D(图论评级)")
+            print("⏭️  已跳过 Agent C(财务验证) — 纯钻探聚焦产业链上下游结构")
         print("=" * 70)
         print()
         print("工作流: [终端产品] → [核心组件] → [关键制程] → [独家材料]")
@@ -451,10 +459,18 @@ class ReverseDrillWorkflow:
         self.agent_b_market_concentration(supplier_data)
         
         # Agent C: 财务评估
-        self.agent_c_financial_assessment(financial_data)
+        if not lightweight:
+            self.agent_c_financial_assessment(financial_data)
+        else:
+            # 纯钻探模式：跳过财务评估，仅基于CR1做集中度判断
+            print(f"╔══ Agent C: 财务定价权评估员 ═══╗")
+            print(f"║ ⏭️  纯钻探模式 — 跳过财务指标分析")
+            print(f"║ 🔴 聚焦：产业链上下游结构 + 节点集中度（CR1）")
+            print(f"╚════════════════════════════════════════╝")
+            print()
         
         # Agent D: 综合评级
-        chokepoints = self.agent_d_final_synthesis()
+        chokepoints = self.agent_d_final_synthesis(lightweight=lightweight)
         
         return chokepoints
     
