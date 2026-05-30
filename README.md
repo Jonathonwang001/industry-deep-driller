@@ -1,298 +1,263 @@
-# 🔬 Industry Deep Driller — 产业链深度钻探系统
+# 🔬 产业链深度钻探系统 v2.0 — Industry Deep Driller
 
-> **Industry Chain Reverse Deep Drilling System**  
-> An investment-banking-grade industry research framework fused with graph-theory-powered bottleneck (chokepoint) identification.
+> **投行级行业研究 × 卡脖子反向钻探 × 六大脑持续学习**  
+> 三模式独立分离 | 图算法量化瓶颈 | self-improving + mem0 + LLM wiki 驱动迭代
 
----
-
-## 🎯 What Is This?
-
-**Industry Deep Driller** is a comprehensive skill/system that combines:
-
-1. **🏦 Investment Banking 6-Dimension Research Framework** (广度层 - Breadth Layer)  
-   Covers: Industry Overview → Value Chain Analysis → Competitive Landscape → Growth Drivers → Risk Assessment → Investment Thesis
-
-2. **🔬 Chokepoint Reverse Deep Drilling** (深度层 - Depth Layer)  
-   A 4-step methodology to find the industry's "bottleneck" — the one or two global suppliers that have absolute pricing power and cannot be replaced.
-
-```
-Layer 1 (Breadth):  6-Dim Research → See the whole picture
-                              ↓
-Layer 2 (Depth):   4-Step Drilling → Find the chokepoint
-```
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-2.0-red.svg)](https://github.com/Jonathonwang001/industry-deep-driller/releases)
+[![Python](https://img.shields.io/badge/python-3.8%2B-green.svg)](https://www.python.org/)
+[![NetworkX](https://img.shields.io/badge/NetworkX-3.0%2B-orange.svg)](https://networkx.org/)
 
 ---
 
-## 🔧 Core Methodology
+## 🎯 这是什么 / What Is This?
 
-### Engine 1: 6-Dimension Industry Research
+**产业链深度钻探系统** 是一个融合了**投行级6维度行研框架** + **图论量化卡脖子识别** + **六大自进化方法论**的完整产业分析工具集。
 
-A complete industry analysis framework:
+三个独立引擎，按需精准输出：
 
-| Dimension | Focus | Output |
-|-----------|-------|--------|
-| ① Industry Definition | Market size, CAGR, life cycle | Industry essence in 1 sentence |
-| ② Value Chain Deep Dive | Upstream/Midstream/Downstream | Who makes the most money & why |
-| ③ Competitive Landscape | CR3/CR5/HHI, Porter's 5 Forces | Market concentration map |
-| ④ Growth Drivers & Trends | Demand/Supply/Policy/Technology | Key variables that move the industry |
-| ⑤ Risk Assessment | Industry/Policy/Competition/Macro | Risk matrix with probability × impact |
-| ⑥ Investment Thesis | Rating, targets, catalysts | Actionable investment recommendations |
-
-📖 **Detailed execution guide**: `references/research-framework.md`
+```
+🔴 纯钻探模式          🟡 标准行研模式          🔵 双引擎深度模式
+"找AI GPU的卡脖子"     "分析AI芯片行业"        "分析AI芯片行业，找找卡脖子环节"
+→ BOM拆解+集中度+图论   → 完整6维度投行行研     → 行研报告 + 嵌入钻探
+→ 不含财务/行研噪声      → 不含钻探             → 全量输出
+```
 
 ---
 
-### Engine 2: Chokepoint Reverse Deep Drilling
+## 🚦 三大独立模式 / Three Independent Modes
 
-A 4-step "drilling" process to find the industry's bottleneck:
+| 模式 | 触发关键词 | 执行 | 跳过 |
+|------|----------|------|------|
+| 🔴 **纯钻探** | 卡脖子、瓶颈、chokepoint、反向钻探 | 产业链图谱 → BOM拆解 → 节点CR1 → 图论量化 | 市场规模、竞争格局、投资评级、财务验证 |
+| 🟡 **标准行研** | 产业链、行业分析、赛道（无瓶颈词） | 6维度完整行业研究 | BOM拆解、图论量化、卡脖子评分 |
+| 🔵 **双引擎** | 行研关键词 + 瓶颈关键词 | 6维度行研 → 嵌入卡脖子钻探 | — |
 
+> ⚠️ **模式互斥**：每个模式独立运行，模式判断在第一步完成，然后坚定不移执行到底。
+
+<details>
+<summary>📖 详细内容 / Expand for details</summary>
+
+### 🔴 纯钻探模式 (Chokepoint Pure Drilling)
+
+**评分公式**（去财务权重）:
 ```
-[Top-Level Demand] → [Core Hardware/Carrier] → [Key Process/Equipment] → [Exclusive Material/Soft Underbelly]
-   (AI Model)             (GPU/Accelerator)           (Advanced Packaging/Lithography)     (Specialty Chemicals/Mask)
+Chokepoint Score = Betweenness×0.40 + CR1×0.35 + Barrier×0.15 + Scarcity×0.10
 ```
 
-#### Step 1: BOM Decomposition (Agent A)
-- Teardown reports → identify core components
-- Filter out standardized parts (no investment value)
-- Focus on **non-standardized, high-barrier** components
+- T0（≥0.70）: 绝对瓶颈 — 全球唯一，替代方案>3年
+- T1（≥0.55）: 核心瓶颈 — 寡头垄断，替换成本极高
+- T2（≥0.35）: 显著瓶颈 — 龙头明确
+- T3（≥0.20）: 潜在瓶颈 — 有特征但验证不足
+- ⚪（<0.20）: 非瓶颈
 
-#### Step 2: Market Concentration Audit (Agent B)
-- Query global CR1/CR3 for each component
-- Red flag: CR1 > 70% (monopoly) 🔴; CR3 > 60% (oligopoly) 🟠
-- Identify geographic concentration risk
+**输出**：≤1500字，纯产业链结构 + 瓶颈定位，不含投资建议
 
-#### Step 3: Financial & Pricing Power Verification (Agent C)
-A true chokepoint MUST have:
-- Gross Margin ≥ 50% → extreme pricing power
-- Expansion Cycle ≥ 12 months → supply-side rigidity
-- R&D Ratio ≥ 15% → sustained technological moat
-- Patent barriers ✅
+### 🟡 标准行研模式 (Standard 6-Dim Research)
 
-#### Step 4: Graph-Theory Quantification (Agent D)
-Using **NetworkX** graph algorithms:
-- **Betweenness Centrality** — the "throat" node that all paths must pass through
-- **Structural Holes** — a node's control over its neighbors
-- **PageRank** — weighted by importance of dependent nodes
+**六维度**：① 行业概览 → ② 产业链拆解 → ③ 竞争格局 → ④ 驱动因素 → ⑤ 风险评估 → ⑥ 投资建议
 
-**Chokepoint Score** = BC×0.30 + CR1×0.25 + Margin×0.20 + Barrier×0.15 + Scarcity×0.10
+输出包含：Porter五力分析、PEST分析、风险矩阵、标的推荐、估值参考
 
-| Score | Rating | Investment Implication |
-|-------|--------|------------------------|
-| ≥ 0.70 | 🔴 Tier-1 Chokepoint (absolute monopoly) | Must study; find alternatives |
-| ≥ 0.50 | 🟠 Tier-2 Chokepoint (oligopoly) | Core focus |
-| ≥ 0.30 | 🟡 Tier-3 (high concentration) | Worth tracking |
-| ≥ 0.15 | 🟢 Tier-4 (some monopoly features) | Monitor |
-| < 0.15 | ⚪ Competitive | No need to track |
+### 🔵 双引擎深度模式 (Dual Engine Deep Dive)
 
-📖 **Detailed methodology**: `references/methodology.md`  
-📊 **NetworkX patterns**: `references/networkx_patterns.md`
+5个维度行研 + 在维度二"产业链拆解"中嵌入纯钻探四步法
+
+</details>
 
 ---
 
-## 🚀 Quick Start
+## 🧬 六大脑持续学习 / Six Self-Evolving Brains
 
-### Prerequisites
+这个 skill **不是静态的**。六条方法论深度嵌入决策流，让它会自我迭代：
+
+| 🧠 大脑 | 嵌入方式 | 效果 |
+|---------|----------|------|
+| **self-improving** | 每次分析后自动记录关键发现；每周检查模式判断准确度，误判率>10% → 触发升级 | 越用越准 |
+| **mem0** | 三个记忆锚点：(1)用户偏好(2)数据源可用性(3)分析结论→3个月后回测验证 | 跨会话记忆 |
+| **openclaw-project-iteration** | 每完成一个产业链分析 → 评估是否值得加入预设模板库 | 模板库持续扩展 |
+| **ragflow-dataset-ingest** | 产业链图谱 + 卡脖子发现 → 自动同步到RAGFlow数据集 | 知识图谱积累 |
+| **universal-agent-skill** | 多Agent工作流纯钻探/完整模式自动切换；Agent C（财务）在lightweight模式下自动休眠 | 精准模式匹配 |
+| **LLM wiki** | 所有结构化知识输出遵循 `docs/wiki/SCHEMA.md` 规范 | 一致性输出 |
+
+<details>
+<summary>📖 六大脑详细说明 / Expand for details</summary>
+
+### 🧠 self-improving — 自迭代
+
+```
+时间触发器:
+  - 每次分析后 → 记录到 memory/YYYY-MM-DD.md
+  - 每周一 → 检查模式判断准确度
+  - 误判率>10% → 升级关键词匹配规则
+  - 发现错误 → 立即写入 LEARNINGS.md
+```
+
+### 🧠 mem0 — 记忆增强
+
+```
+记忆锚点:
+  - 用户偏好记忆: 主人偏好卡脖子=纯钻探（非行研）
+  - 数据源记忆: 哪些API当前可用/不可用
+  - 结论记忆: 关键卡脖子判断→3个月后回测验证
+```
+
+### 🧠 openclaw-project-iteration — 模板扩展
+
+```
+模板扩展标准:
+  1. 产业链有≥5个可识别的瓶颈节点
+  2. 有完整的BOM拆解数据
+  3. 有至少3个供应商的CR1数据
+  满足以上 → 加入预设模板库
+```
+
+### 🧠 ragflow-dataset-ingest — 知识库同步
+
+```
+自动同步内容:
+  - 产业链图谱（节点+边）
+  - 卡脖子评级结果
+  - 供应商集中度数据
+  - 关键发现摘要
+```
+
+### 🧠 universal-agent-skill — 多Agent编排
+
+```
+Agent编排决策:
+  - lightweight=True → A(拆解) → B(集中度) → D(图论) | C休眠
+  - lightweight=False → A → B → C(财务) → D(综合)
+```
+
+### 🧠 LLM wiki — 结构化知识规范
+
+```
+输出规范:
+  - 所有报告遵循统一格式模板
+  - 数据来源标注规范: [来源: 机构名, YYYY-MM]
+  - 事实/推断/猜测三级区分
+  - 结构化表格占比≥60%
+```
+
+</details>
+
+---
+
+## 🔧 核心脚本 / Core Scripts
+
+| 脚本 | 功能 | 用法 |
+|------|------|------|
+| `build_dependency_graph.py` | 构建产业链图谱 | `--template ai_gpu/humanoid_robot/evtol` |
+| `find_chokepoints.py` | 卡脖子评分引擎 | `--graph chain.json --top 10` |
+| `reverse_drill_agent.py` | 多Agent钻探工作流 | `--template ai_gpu --lightweight` |
 
 ```bash
-pip install networkx  # Graph algorithms
+# 🔴 纯钻探（财务验证自动跳过）
+python3 scripts/reverse_drill_agent.py --template ai_gpu --lightweight
+
+# 🔵 完整双引擎
+python3 scripts/reverse_drill_agent.py --template ai_gpu
+
+# 构建自己的产业链图谱
+python3 scripts/build_dependency_graph.py --template ai_gpu --output my_chain.json
+python3 scripts/find_chokepoints.py --graph my_chain.json --top 15
 ```
-
-### Use Pre-built Industry Templates
-
-```bash
-# Build AI GPU industry chain graph
-python3 scripts/build_dependency_graph.py --template ai_gpu --output ai_gpu_chain.json
-
-# Detect chokepoints
-python3 scripts/find_chokepoints.py --graph ai_gpu_chain.json --top 10 --output report.md
-
-# Run full 4-Agent workflow demo
-python3 scripts/reverse_drill_agent.py
-```
-
-### Available Templates
-
-| Template | Industry | Core Chokepoint Path |
-|----------|----------|----------------------|
-| `ai_gpu` | AI GPU Industry Chain | H100 → EUV Lithography → Photoresist → Photosensitizer |
-| `humanoid_robot` | Humanoid Robot Industry Chain | Robot → Harmonic Reducer → Flex Bearing → Precision Machining |
-| `evtol` | eVTOL (Low-Altitude Economy) | eVTOL → Solid-State Battery → Solid Electrolyte → Lithium Metal Anode |
 
 ---
 
-## 📂 File Structure
+## 📐 纯钻探评分公式 / Pure Drilling Scoring
+
+```
+v1.0 (旧): BC×0.30 + CR1×0.25 + Margin×0.20 + Barrier×0.15 + Scarcity×0.10
+v2.0 (新): BC×0.40 + CR1×0.35 + Barrier×0.15 + Scarcity×0.10
+            ↑ 介数↑    ↑ 集中度↑    ✂️去毛利 ✂️
+```
+
+纯钻探的哲学：**不论赚多少钱，只论不可替代性。**
+
+---
+
+## 📊 预设行业模板 / Pre-built Templates
+
+| 模板 | 名称 | 钻探路径 |
+|------|------|----------|
+| `ai_gpu` | AI GPU产业链 | H100 → EUV光刻 → 光刻胶 → 光敏树脂 |
+| `humanoid_robot` | 人形机器人 | 整机 → 减速器 → 轴承 |
+| `evtol` | 低空经济 | eVTOL → 固态电池 → 锂金属负极 |
+
+---
+
+## 📁 文件结构 / File Structure
 
 ```
 industry-deep-driller/
-├── README.md                          ← You are here (English)
-├── README_ZH.md                      ← 中文版说明文档
-├── ABOUT.md                          ← GitHub About (displayed on repo main page)
-├── SKILL.md                          ← Skill instruction file (for OpenClaw/ClawHub)
-├── LICENSE                           ← MIT License
+├── SKILL.md              ← 核心指令（模式入口+决策树）
+├── README.md             ← 本文件（中英双语）
+├── README_ZH.md          ← 中文完整版
+├── ABOUT.md              ← GitHub 项目描述
+├── LICENSE               ← MIT 开源协议
 ├── scripts/
-│   ├── build_dependency_graph.py     ← Graph builder + 3 industry templates
-│   ├── find_chokepoints.py          ← Chokepoint detection engine
-│   └── reverse_drill_agent.py       ← 4-Agent collaborative workflow
+│   ├── build_dependency_graph.py    ← 产业链图谱构建器
+│   ├── find_chokepoints.py          ← 卡脖子评分引擎
+│   └── reverse_drill_agent.py       ← 多Agent工作流
 └── references/
-    ├── research-framework.md         ← 6-dimension research execution guide
-    ├── output-examples.md            ← Sample industry research reports
-    ├── methodology.md                ← Chokepoint 4-step drilling methodology
-    ├── networkx_patterns.md         ← NetworkX graph algorithm reference
-    ├── agent_workflow.md            ← 4-Agent role configuration
-    └── report_template.md           ← Chokepoint analysis report template
+    ├── research-framework.md         ← 6维度行研执行指南
+    ├── output-examples.md            ← 行研报告输出示例
+    ├── methodology.md                ← 卡脖子方法论
+    ├── networkx_patterns.md          ← 图算法参考
+    ├── agent_workflow.md             ← Agent编排配置
+    └── report_template.md            ← 纯钻探报告模板
 ```
 
 ---
 
-## 🔬 The 4-Agent Workflow
-
-When analyzing a specific product/industry, four "agents" collaborate:
-
-```
-Agent A (BOM Decomposer)
-   ↓ Identifies core components
-Agent B (Market Concentration Auditor)
-   ↓ Calculates CR1/CR3, flags monopolies
-Agent C (Financial & Pricing Power Assessor)
-   ↓ Verifies margin, expansion cycle, patent moat
-Agent D (Chokepoint Synthesis & Grader)
-   ↓ Builds graph, computes betweenness, gives final rating
-```
-
-Each agent's output feeds into the next — a pipeline ensuring **no chokepoint is missed**.
-
-📖 **Agent configuration details**: `references/agent_workflow.md`
-
----
-
-## 📊 Example: AI GPU Industry Chain Analysis
-
-After running the full workflow on NVIDIA H100 GPU:
-
-```
-==========================================
-🔬 Industry Chain Reverse Deep Drilling Report
-==========================================
-
-Top Chokepoints:
-  1. EUV Lithography Process        Score: 0.6552 🟠 Tier-2
-  2. CoWoS Advanced Packaging       Score: 0.6489 🟠 Tier-2
-  3. GPU Core Chip (5nm)           Score: 0.6192 🟠 Tier-2
-  4. Low-Loss Resin                Score: 0.4696 🟡 Tier-3
-  5. HBM3e High-Bandwidth Memory  Score: 0.4688 🟡 Tier-3
-  ...
-```
-
-**Key insight**: ASML (EUV lithography) has **100% global market share** — a true absolute chokepoint. TSMC's CoWoS packaging has **95% market share** — another chokepoint.
-
----
-
-## 🎯 Use Cases
-
-This system/methodology is designed for:
-
-1. **Industry chain deep-dive research** (find the real bottlenecks)
-2. **Supply chain bottleneck identification** (chokepoint / bottleneck analysis)
-3. **BOM (Bill of Materials) reverse tracing**
-4. **Monopoly quantification using graph algorithms**
-5. **Investment-banking-grade industry research reports**
-6. **Identifying "shovel sellers" (Pick-and-Shovel strategy)**
-
-**Trigger keywords** (for AI agent integration):
-- 中文: 产业链、卡脖子、反向钻探、chokepoint、bottleneck、供应链分析、垄断分析、产业链图谱、BOM拆解、行业瓶颈
-- English: `industry chain`, `chokepoint`, `bottleneck`, `reverse drilling`, `supply chain analysis`, `monopoly analysis`, `BOM teardown`
-
----
-
-## 🔗 Integration with AI Agents (OpenClaw)
-
-This skill is designed to be installed in **OpenClaw** (an AI agent framework):
+## 🚀 快速开始 / Quick Start
 
 ```bash
-# Install via ClawHub
-clawhub install industry-deep-driller
+# 克隆
+git clone https://github.com/Jonathonwang001/industry-deep-driller.git
+cd industry-deep-driller
 
-# Or manually copy to ~/.qclaw/skills/
-cp -r industry-deep-driller ~/.qclaw/skills/
+# 安装依赖
+pip install networkx
+
+# 🔴 纯钻探 — 找AI GPU产业链卡脖子
+python3 scripts/reverse_drill_agent.py --template ai_gpu --lightweight
+
+# 🟡 标准行研 — 这个需要 LLM 配合，用 skill 调用
+# 在 OpenClaw 中说："用 industry-deep-driller 分析人形机器人行业"
+
+# 🔵 双引擎 — 行研 + 钻探
+# 在 OpenClaw 中说："用 industry-deep-driller 深入分析AI芯片行业，找出卡脖子环节"
 ```
 
-Once installed, the AI agent will **automatically trigger** this skill when the user's request matches the trigger keywords above.
+---
+
+## 🧪 融合的技术栈 / Integrated Tech Stack
+
+| 技术 | 来源仓库 | 应用 |
+|------|----------|------|
+| 产品知识图谱构建 | [liuhuanyong/ProductKnowledgeGraph](https://github.com/liuhuanyong/ProductKnowledgeGraph) | BOM拆解 + 供应链映射 |
+| 知识图谱构建工具集 | [Aminer-Cloud/KG-Construction](https://github.com/Aminer-Cloud/KG-Construction) | 产业链节点关系建模 |
+| 图算法库 | [networkx/networkx](https://github.com/networkx/networkx) | 介数中心性 + PageRank + 结构洞分析 |
+| 多Agent框架 | [geekan/MetaGPT](https://github.com/geekan/MetaGPT) / [microsoft/autogen](https://github.com/microsoft/autogen) | 四Agent工作流编排 |
 
 ---
 
-## 📚 Methodology Sources
+## 📐 版本历史 / Version History
 
-This system fuses methodologies from:
-
-- **Investment Banking Research** (Goldman Sachs, Morgan Stanley, UBS) — 6-dimension framework
-- **Graph Theory / Network Science** — Betweenness centrality, structural holes
-- **Pick-and-Shovel Strategy** (Tiger Global, Coatue, Hillhouse) — find the "shovel seller" in a gold rush
-- **Bottleneck Theory** — identify the shortest plank in the wooden bucket
-- **LLM Wiki Methodology** — structured knowledge management
-- **Universal Agent Skill** — universal agent workflow patterns
+| 版本 | 日期 | 变更 |
+|------|------|------|
+| v1.0 | 2026-05-30 | 初始版本：双引擎架构（引擎绑定） |
+| **v2.0** | **2026-05-30** | 🔴 三模式独立分离 + 六大脑深度嵌入 + 纯钻探评分去除毛利率权重 |
 
 ---
 
-## 🧪 Tested & Verified
+## 📄 许可 / License
 
-- ✅ AI GPU industry chain (25 nodes, 21 edges) — successfully identified EUV lithography, CoWoS packaging as Tier-2 chokepoints
-- ✅ Humanoid robot industry chain — identified harmonic reducers, hollow-cup motors as key bottlenecks
-- ✅ eVTOL (low-altitude economy) industry chain — identified solid-state batteries, carbon fiber composites as bottlenecks
-- ✅ 4-Agent workflow runs successfully end-to-end
+MIT License — 见 [LICENSE](LICENSE)
 
 ---
 
-## 📖 Documentation
-
-All references are in the `references/` directory:
-
-| File | Content |
-|------|---------|
-| `research-framework.md` | 6-dimension industry research execution guide (detailed) |
-| `output-examples.md` | Sample industry research reports (for format reference) |
-| `methodology.md` | Chokepoint 4-step drilling methodology (detailed) |
-| `networkx_patterns.md` | NetworkX graph algorithm code examples |
-| `agent_workflow.md` | 4-Agent role definitions, prompts, orchestration |
-| `report_template.md` | Chokepoint analysis report template (6000-word structure) |
-
----
-
-## 🔒 Data Discipline (Iron Rules)
-
-1. **All key data must cite sources and timestamps**
-2. **Cannot obtain = "⚠️ 待验证" (pending verification)** — never fabricate data
-3. **Distinguish**: Fact → Inference (⚠️ 推测) → Guess (⚠️ 猜测)
-4. **Cross-verify core data with ≥ 2 sources**
-5. **Prefer 2025/2026 data** (most recent available)
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
-
----
-
-## 👤 Author & Contact
-
-- **Created by**: QClaw AI Agent System (沐沐/MuMu)
-- **For**: Jonathan (乔纳森)
-- **Date**: 2026-05-30
-- **Version**: v1.0.0
-
----
-
-## 🔗 Related Projects
-
-- [OpenClaw](https://github.com/openclaw/openclaw) — the AI agent framework this skill is designed for
-- [ProductKnowledgeGraph](https://github.com/liuhuanyong/ProductKnowledgeGraph) — product knowledge graph (reference)
-- [KG-Construction](https://github.com/Aminer-Cloud/KG-Construction) — knowledge graph construction (reference)
-- [networkx](https://github.com/networkx/networkx) — graph algorithms (core dependency)
-- [MetaGPT](https://github.com/geekan/MetaGPT) — multi-agent framework (methodology reference)
-- [AutoGen](https://github.com/microsoft/autogen) — multi-agent framework (methodology reference)
-
----
-
-## ⭐ Star History
-
-If you find this methodology/system useful, please give it a star! ⭐
+**Made with 🖤 by 沐沐 & 乔纳森大人 | v2.0 — 三模式独立 | 六大脑自进化**
